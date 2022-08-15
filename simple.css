@@ -4,3 +4,44 @@ h1 {
    text-align: center;
    color: white;
 }
+
+h2 {
+    text-align:center;
+}
+
+h3 {
+    text-align: center;
+}
+
+li { font-size: 22px; color: aquamarine;}
+
+#video {
+    background-color: bisque;
+    width: 180px;
+    height: 25px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+img {
+    display: block;
+    /* center the image */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    width: 50px;
+    height: 100px;
+}
+
+.btn-primary{
+    background-color: brown;
+}
+.btn-success{
+    background-color: rgb(243, 7, 7);
+}
+.btn-warning{
+    background-color: rgb(42, 165, 122);
+}
