@@ -6,12 +6,42 @@
     <link rel="stylesheet" href="simple.css">
 </head>
 
+<style>
+    header li {
+        list-style: none;
+    }
+    
+    
+    a:link, a:visited {
+        text-decoration: none;
+        background-color: azure;
+        border: 1px solid blue;
+        color: black;
+        display: block;
+        width: 200px;
+        text-align: center;
+        margin-bottom: 1px;
+        
+    }
+
+    a:hover, a:active {
+        background-color: burlywood;
+        color: yellow;
+    }
+
+</style>
+
+
 <body>
-    <header>
+    <header class="header">
         header element - ussually consists logo, some tag, etc...
         <nav>nav (short for navigation) - usually links to different parts of the website</nav>
+        <ul>
+            <li><a href="https://www.facebook.com/Haibara.Ai.Jr" target="_blank">Facebook</a></li>
+            <li><a href="https://www.instagram.com/trmihnle/" target="_blank">Instagram</a></li>
+        </ul>
     </header>
-<h1>Helloooo, this is Main heading of this page</h1>
+<h1>Helloooo, this is main heading of this page</h1>
 <section>
     Section 1
     <article>Article 1</article>
@@ -24,10 +54,22 @@
 <aside>
     aside - some information that relates to the main topic.
 </aside>
-<h2>Minhdeptrai is here</h2>
-<h3>this is my 1st time to build a website</h3>
-<div>
+
+
+<h2><b>Subheading 2 - Minhdeptrai is here</b></h2>
+<p class="intro">
+    My name is Minh. I'm a 3rd year student at ITMO university.
+</p>
+
+
+<h3><b>Subheading 3 - This is my 1st time to build a website</b></h3>
+<p class="welcome">
+    Welcome to my first page. 
+    I'm just learning about web deverlopment and I'm trying to build static web here.
+</p>
+<div><b>
     My typical dinner shopping list:
+    </b>
     <ul>
         <li>Milk</li>
         <li>Orange</li>
