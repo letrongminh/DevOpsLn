@@ -16,11 +16,7 @@ class UserInfoResponse(BaseModel):
     university: str 
     year: int
     sex: str
-    # avatar: str
-    # program: str
-
-
-
+    
 class AllUserInfoResponse(BaseModel):
     users: List[UserInfoResponse]
 
