@@ -5,8 +5,6 @@ import logging
 
 client = TestClient(app)
 
-
-
 def test_post_student_1():
     logging.info("Start the post student test")
     response = client.post(
