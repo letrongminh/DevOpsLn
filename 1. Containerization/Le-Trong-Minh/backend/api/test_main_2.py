@@ -5,40 +5,6 @@ import logging
 
 client = TestClient(app)
 
-def test_post_student_1():
-    logging.info("Start the post student test")
-    response = client.post(
-        "/api/v1/students",
-        json={
-            "stt": "0",
-            "name": "Arthur Xiaomi",
-            "username": "arthurx",
-            "year_of_birth": "2000",
-            "gender": "male",
-            "university": "Birmingham",
-            "major": "English Gangster"
-        }
-    )
-    assert response.status_code == 200
-    response_data = response.json()
-    del response_data['data']['id']
-    assert response_data == {
-        "data": 
-            {
-            "stt": 0,
-            "name": "Arthur Xiaomi",
-            "username": "arthurx",
-            "year_of_birth": 2000,
-            "gender": "male",
-            "university": "Birmingham",
-            "major": "English Gangster"
-            }
-        ,
-        "code": 200,
-        "message": "Student added successfully."
-    }
-    logging.info("Pass the student post test")
-
 @pytest.fixture(scope="module")
 def student_data():
     return {
