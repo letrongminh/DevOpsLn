@@ -38,7 +38,7 @@ jobs:
         
       - name: Test api
         run: |
-          cd 1.\ Containerization/Le-Trong-Minh/backend/
+          cd 1.\ Containerization/Le-Trong-Minh/backend/api/
           pwd
           pytest test_main_2.py
 

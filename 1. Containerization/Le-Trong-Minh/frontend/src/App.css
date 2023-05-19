@@ -3,83 +3,125 @@
     justify-content: center;
     align-items: center;
     height: 80px;
-    background-color: #fff;
+    background-color: #ff4444;
     border-bottom: 1px solid #eee;
-
-}
-
-
-
-.logo img {
+  }
+  
+  .logo img {
     width: 200px;
     text-align: center;
-}
-
-.text-list {
+  }
+  
+  .text-list {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 30px;
     margin: 20px 0 10px;
-}
-
-.table-container {
+    color: #ff4444;
+  }
+  
+  .table-container {
     border-collapse: collapse;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-}
-
-th, td {
+    overflow-x: auto;
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .responsive-table {
+    width: 100%;
+    white-space: nowrap;
+  }
+  
+  .responsive-table th,
+  .responsive-table td {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .responsive-table th {
+    background-color: #ff4444;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  .responsive-table td {
+    background-color: #ffcccc;
+    border-radius: 10px;
+  }
+  
+  .responsive-table tbody tr:hover {
+    background-color: #ff9999;
+  }
+  
+  @media (max-width: 768px) {
+    .responsive-table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+  
+  th,
+  td {
     padding: 10px;
     text-align: left;
     border: 1px solid #ccc;
-}
-
-th {
+  }
+  
+  th {
     background-color: #f5f5f5;
     font-weight: bold;
-}
-
-tbody tr:nth-child(even) {
+    border-radius: 10px;
+  }
+  
+  tbody tr:nth-child(even) {
     background-color: #f2f2f2;
-}
-
-tbody tr:hover {
+  }
+  
+  tbody tr:hover {
     background-color: #d9d9d9;
-}
-
-tfoot tr:last-child {
+  }
+  
+  tfoot tr:last-child {
     background-color: #f5f5f5;
     font-weight: bold;
-}
-
-tfoot td:first-child {
+  }
+  
+  tfoot td:first-child {
     border-top: 2px solid #ccc;
-}
-
-.button-row {
+  }
+  
+  .button-row {
     text-align: center;
-}
-
-.button-row button {
+  }
+  
+  .button-row button {
     width: 50px;
     display: inline-block;
     margin: 2px;
-}
-
-.table-container th {
+    border-radius: 10px;
+    background-color: #ff4444;
+    color: white;
+  }
+  
+  .table-container th {
     text-align: center;
-}
-
-.name {
+  }
+  
+  .name {
     width: 145px;
-}
-
-.footer {
+  }
+  
+  .footer {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 20px 0 30px;
-}
+  }
+  
