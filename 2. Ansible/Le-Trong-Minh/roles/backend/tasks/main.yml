@@ -17,6 +17,13 @@
     state: present
 
 # - include_tasks: setup.yml
+
+- name: Create docker network
+  docker_network: 
+    name: "{{ NETWORK }}"
+  register: docker_network
+  become: yes
+  tags: docker
 # - include_tasks: service.yml
 
 - name: Run the docker api images
@@ -27,8 +34,8 @@
     # image: api
     state: started
     restart_policy: unless-stopped
-    # networks: 
-    #   - name: "{{ NETWORK}}"
+    networks: 
+      - name: "{{ NETWORK }}"
     ports:
       - "80:80"
     env:

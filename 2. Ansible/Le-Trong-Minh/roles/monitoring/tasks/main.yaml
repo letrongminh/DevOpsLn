@@ -1,9 +1,25 @@
 ---
+- name: Check network
+  docker_network_info:
+    name: "{{ NETWORK }}"
+  register: docker_network
+  become: yes
+  tags: docker
+
+- name: Create docker network
+  docker_network: 
+    name: "{{ NETWORK }}"
+  when: docker_network.exists == false
+  register: docker_network
+  become: yes
+  tags: docker
+
+
 - name: Node exporter container.
   community.docker.docker_container:
     name: minhlt-nodeexporter
-    # networks:
-    # - name: midterm
+    networks:
+    - name: vtd
     image: prom/node-exporter:v1.5.0
     state: started
     restart_policy: "unless-stopped"
@@ -24,8 +40,8 @@
 - name: Cadvisor container.
   community.docker.docker_container:
     name: minhlt-cadvisor
-    # networks:
-    # - name: midterm
+    networks:
+    - name: vdt
 
     image: gcr.io/cadvisor/cadvisor-arm64:v0.47.0
     restart_policy: "unless-stopped"
@@ -43,8 +59,8 @@
 - name: Prometheus container
   community.docker.docker_container:
     name: minhlt-prometheus
-    # networks:
-    # - name: midterm
+    networks:
+    - name: vdt
     image: prom/prometheus:v2.29.1
     restart_policy: "unless-stopped"
     volumes:

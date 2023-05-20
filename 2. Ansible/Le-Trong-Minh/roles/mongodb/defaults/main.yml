@@ -7,7 +7,7 @@ mongodb_container_name: 'mongodb'
 # Port to be exposed to the host
 mongodb_port: 27017
 mongodb_internal_port: 27017
-NETWORK_ : vdt
+NETWORK : vdt
 
 ###########################################################################
 # Authentication

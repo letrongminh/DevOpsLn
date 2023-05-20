@@ -21,7 +21,24 @@
     - mongodb-org-tools
   when: mongodb_install_cli and (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu')
 
-# - include_tasks: setup_env.yml
+
+# config:
+- name: Check network
+  docker_network_info:
+    name: "{{ NETWORK }}"
+  register: docker_network
+  become: yes
+  tags: docker
+
+- name: Create docker network
+  docker_network:
+    name: "{{ NETWORK }}"
+    state: present
+  when: docker_network.exists == false
+  become: yes
+  tags: docker
+
+
 # - include_tasks: service.yml
 
 - name: 'Configuration: Environment with Auth'
@@ -58,8 +75,8 @@
     name: '{{ mongodb_container_name }}-data'
     image: '{{ mongodb_docker_image }}:{{ mongodb_docker_image_tag }}'
     state: present
-    # networks:
-    #   - name: "{{ NETWORK_ }}"
+    networks:
+      - name: "{{ NETWORK }}"
 
 - name: Run mongodb container
   docker_container:
@@ -74,6 +91,9 @@
       - '{{ mongodb_container_name }}-data'
     ports:
       - '{{ mongodb_port }}:{{ mongodb_internal_port }}'
+    networks:
+      - name: "{{ NETWORK }}"
+      
   # register: mongodb_container
 
 - name: Wait until mongodb starts up
