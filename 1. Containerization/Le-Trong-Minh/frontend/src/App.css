@@ -1,133 +1,4 @@
-/* .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-    background-color: #ff4444;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .logo img {
-    width: 200px;
-    text-align: center;
-  }
-  
-  .text-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    margin: 20px 0 10px;
-    color: #ff4444;
-  }
-  
-  .table-container {
-    border-collapse: collapse;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow-x: auto;
-    max-width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .responsive-table {
-    width: 100%;
-    white-space: nowrap;
-  }
-  
-  .responsive-table th,
-  .responsive-table td {
-    text-align: center;
-    padding: 10px;
-  }
-  
-  .responsive-table th {
-    background-color: #ff4444;
-    color: white;
-    border-radius: 10px;
-  }
-  
-  .responsive-table td {
-    background-color: #ffcccc;
-    border-radius: 10px;
-  }
-  
-  .responsive-table tbody tr:hover {
-    background-color: #ff9999;
-  }
-  
-  @media (max-width: 768px) {
-    .responsive-table {
-      display: block;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-  }
-  
-  th,
-  td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ccc;
-  }
-  
-  th {
-    background-color: #f5f5f5;
-    font-weight: bold;
-    border-radius: 10px;
-  }
-  
-  tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  tbody tr:hover {
-    background-color: #d9d9d9;
-  }
-  
-  tfoot tr:last-child {
-    background-color: #f5f5f5;
-    font-weight: bold;
-  }
-  
-  tfoot td:first-child {
-    border-top: 2px solid #ccc;
-  }
-  
-  .button-row {
-    text-align: center;
-  }
-  
-  .button-row button {
-    width: 50px;
-    display: inline-block;
-    margin: 2px;
-    border-radius: 10px;
-    background-color: #ff4444;
-    color: white;
-  }
-  
-  .table-container th {
-    text-align: center;
-  }
-  
-  .name {
-    width: 145px;
-  }
-  
-  .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0 30px;
-  }
-   */
-
-
-   .header {
+.header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,8 +7,6 @@
     border-bottom: 1px solid #eee;
 
 }
-
-
 
 .logo img {
     width: 200px;
@@ -196,6 +65,16 @@ tfoot td:first-child {
     width: 50px;
     display: inline-block;
     margin: 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.edit {
+    background-color: aqua;
+}
+
+.delete {
+    background-color: rgb(248, 131, 121);
 }
 
 .table-container th {

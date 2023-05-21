@@ -13,13 +13,14 @@ function App() {
     const [isOpen, setIsOpen] = useState();
     const [isEdit, setIsEdit] = useState(true);
     const [reload, setReload] = useState(true);
-
+    const port = process.env.REACT_APP_PORT_API;
+    const url = `http://localhost:${port}/api/v1`;
+    console.log(process.env.REACT_APP_PORT_API);
     useEffect(() => {
         if (reload) {
             axios
-                .get("http://localhost:80/api/v1/students")
+                .get(`${url}/students`)
                 .then((res) => {
-                    // setStudents(res.data.data[0]);
                     setStudents(res.data.data);
                 })
                 .then(() => {
@@ -30,7 +31,7 @@ function App() {
 
     const deleteStudent = (id, name) => {
         axios
-            .delete(`http://localhost:80/api/v1/students/${id}`)
+            .delete(`${url}/students/${id}`)
             .then(() => {
                 message.success(`Da xoa hoc sinh ${name}`);
                 setReload(true);
@@ -42,13 +43,13 @@ function App() {
 
     return (
         <div className={`App ${isOpen ? "mask" : ""}`}>
-            {/* <header className='header'>
+            <header className='header'>
                 <div className='logo'>
                     <img src={logo} alt='Logo' />
                 </div>
-            </header> */}
+            </header>
             <div className='text-list'>
-                Apprentices in Cloud Computing
+                List of intern Viettel Digital Talent 2023
             </div>
             <div className='table-container'>
                 <table style={{ position: "relative" }}>
@@ -75,10 +76,10 @@ function App() {
                             <th>STT</th>
                             <th className='name'>Name</th>
                             <th>Username</th>
-                            {/* <th>Year</th>
+                            <th>Year</th>
                             <th>Gender</th>
                             <th>University</th>
-                            <th>Major</th> */}
+                            <th>Major</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -95,12 +96,13 @@ function App() {
                                 <td>{student.stt}</td>
                                 <td>{student.name}</td>
                                 <td>{student.username}</td>
-                                {/* <td>{student.year_of_birth}</td>
+                                <td>{student.year_of_birth}</td>
                                 <td>{student.gender}</td>
                                 <td>{student.university}</td>
-                                <td>{student.major}</td> */}
+                                <td>{student.major}</td>
                                 <td className='button-row'>
                                     <button
+                                        className='edit'
                                         onClick={(e) => {
                                             e.stopPropagation();
                                             setIsOpen(true);
@@ -111,6 +113,7 @@ function App() {
                                         Edit
                                     </button>
                                     <button
+                                        className='delete'
                                         onClick={(e) => {
                                             e.stopPropagation();
                                             deleteStudent(
@@ -127,7 +130,7 @@ function App() {
                     </tbody>
                 </table>
             </div>
-            {/* <footer className='footer'>Copyright ©  2023</footer> */}
+            <footer className='footer'>Copyright © hieuminhvuu 2023</footer>
 
             <StudentModal
                 id={currentId}
@@ -143,111 +146,3 @@ function App() {
 }
 
 export default App;
-
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-// import { message } from "antd";
-// import { UserAddOutlined } from "@ant-design/icons";
-// import logo from "./assets/viettel.png";
-// import "./App.css";
-// import StudentModal from "./components/modal/StudentModal";
-
-// function App() {
-//   const [students, setStudents] = useState([]);
-//   const [currentId, setCurrentId] = useState("");
-//   const [isOpen, setIsOpen] = useState(false);
-//   const [isEdit, setIsEdit] = useState(true);
-//   const [reload, setReload] = useState(true);
-
-//   useEffect(() => {
-//     if (reload) {
-//       axios
-//         .get("http://localhost:80/api/v1/students")
-//         .then((res) => {
-//           setStudents(res.data.data);
-//           setReload(false);
-//         })
-//         .catch((err) => {
-//           message.error(JSON.stringify(err));
-//         });
-//     }
-//   }, [reload]);
-
-//   const deleteStudent = (id, name) => {
-//     axios
-//       .delete(`http://localhost:80/api/v1/students/${id}`)
-//       .then(() => {
-//         message.success(`Deleted student ${name}`);
-//         setReload(true);
-//       })
-//       .catch((err) => {
-//         message.error(JSON.stringify(err));
-//       });
-//   };
-
-//   return (
-//     <div className={`App ${isOpen ? "mask" : ""}`}>
-//       <div className="text-list">Apprentices in Cloud Computing</div>
-//       <div className="table-container">
-//         <table className="responsive-table">
-//           <thead>
-//             <tr>
-//               <th>STT</th>
-//               <th className="name">Name</th>
-//               <th>Username</th>
-//               <th>Action</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {students.map((student) => (
-//               <tr
-//                 key={student.id}
-//                 onClick={() => {
-//                   setIsOpen(true);
-//                   setIsEdit(false);
-//                   setCurrentId(student.id);
-//                 }}
-//               >
-//                 <td>{student.stt}</td>
-//                 <td>{student.name}</td>
-//                 <td>{student.username}</td>
-//                 <td className="button-row">
-//                   <button
-//                     onClick={(e) => {
-//                       e.stopPropagation();
-//                       setIsOpen(true);
-//                       setCurrentId(student.id);
-//                       setIsEdit(true);
-//                     }}
-//                   >
-//                     Edit
-//                   </button>
-//                   <button
-//                     onClick={(e) => {
-//                       e.stopPropagation();
-//                       deleteStudent(student.id, student.name);
-//                     }}
-//                   >
-//                     Delete
-//                   </button>
-//                 </td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-//       </div>
-
-//       <StudentModal
-//         id={currentId}
-//         isOpen={isOpen}
-//         isEdit={isEdit}
-//         onCancel={() => setIsOpen(false)}
-//         onSuccess={() => {
-//           setReload(true);
-//         }}
-//       />
-//     </div>
-//   );
-// }
-
-// export default App;
