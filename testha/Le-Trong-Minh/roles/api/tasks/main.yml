@@ -28,9 +28,10 @@
 - name: Run the docker api images
   community.docker.docker_container:
     name: backend_1
-    # image: trongminhjr/api:latest
+    image: trongminhjr/api:latest
+    # image: trongminhjr/api:v3
     # image: trongminhjr/devmidterm_api:v1
-    image: api
+    # image: api
     state: started
     restart_policy: unless-stopped
     networks: 
@@ -44,9 +45,10 @@
 - name: Run the docker api images
   community.docker.docker_container:
     name: backend_2
-    # image: trongminhjr/api:latest
+    image: trongminhjr/api:latest
+    # image: trongminhjr/api:v3
     # image: trongminhjr/devmidterm_api:v1
-    image: api
+    # image: api
     state: started
     restart_policy: unless-stopped
     networks: 

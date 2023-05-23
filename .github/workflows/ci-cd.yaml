@@ -58,7 +58,7 @@ jobs:
         with:
           username: ${{ secrets.USER_DOCKERHUB }}
           password: ${{ secrets.PASSWORD_DOCKERHUB }}
-          
+
       # - name: docker login
       #   env:
       #     DOCKER_USER: ${{secrets.DOCKER_USER}}
@@ -79,7 +79,7 @@ jobs:
           context: "{{defaultContext}}:10.\ GK/Le-Trong-Minh/webapp/backend"
           platforms: linux/arm64
           push: true
-          tags: "trongminhjr/api:v3"
+          tags: "trongminhjr/api:latest"
           # labels: "trongminhjr/api"
 
       - name: Build and push webserver image to Docker hub
@@ -88,6 +88,6 @@ jobs:
           context: "{{defaultContext}}:10.\ GK/Le-Trong-Minh/webapp/frontend"
           platforms: linux/arm64
           push: true
-          tags: "trongminhjr/webserver:v3"
+          tags: "trongminhjr/webserver:latest"
           # labels: "trongminhjr/webserver"
 
