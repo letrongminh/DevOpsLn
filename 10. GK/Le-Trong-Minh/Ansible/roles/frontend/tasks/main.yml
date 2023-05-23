@@ -1,0 +1,50 @@
+---
+# - include_tasks: config.yml
+
+- name: Create vth group info.
+  group:
+    name: '{{ hostname }}'
+
+- name: Create user.
+  user:
+    name: '{{ hostname }}'
+    group: '{{ hostname }}'
+
+- name: Check docker install.
+  package:
+    name: docker
+    state: present
+
+
+
+- name: Check network
+  docker_network_info:
+    name: "{{ NETWORK }}"
+  register: docker_network
+  become: yes
+  tags: docker
+
+- name: Create docker network
+  docker_network: 
+    name: "{{ NETWORK }}"
+  when: docker_network.exists == false
+  register: docker_network
+  become: yes
+  tags: docker
+
+# - include_tasks: service.yml
+
+
+- name: Restart a container
+  community.docker.docker_container:
+    name: frontend
+    image: trongminhjr/webserver:latest
+    # image: trongminhjr/devmidterm-web:v1
+    # image: webserver
+    state: started
+    restart_policy: unless-stopped
+    networks: 
+      - name: "{{NETWORK}}"
+    ports:
+      - "3000:3000"
+    

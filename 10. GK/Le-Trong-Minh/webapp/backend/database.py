@@ -6,8 +6,9 @@ from bson import ObjectId
 
 pydantic.json.ENCODERS_BY_TYPE[ObjectId] = str
 
-# mongoHost = os.getenv("MONGODB_HOST", "mongodb")
-mongoHost = os.getenv("MONGODB_HOST", "localhost")
+# MongoDB driver
+mongoHost = os.getenv("MONGODB_HOST", "mongodb")
+# mongoHost = os.getenv("MONGODB_HOST", "localhost")
 url = f"mongodb://{mongoHost}:27017/vdt2023"
 client = motor.motor_asyncio.AsyncIOMotorClient(url)
 

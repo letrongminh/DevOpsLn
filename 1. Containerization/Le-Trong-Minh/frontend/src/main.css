@@ -29,6 +29,9 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    border: none;
+    outline: none;
+    box-shadow: none;
     
 }
 
@@ -40,7 +43,7 @@
 }
 .table-container {
     width: 100%;
-    /* overflow-x: auto; */
+    overflow-x: auto;
 }
 
 .fit-table {
@@ -83,6 +86,9 @@ tfoot td:first-child {
 
 .button-row {
     text-align: center;
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
 
 .button-row button {
@@ -91,6 +97,9 @@ tfoot td:first-child {
     margin: 2px;
     cursor: pointer;
     border-radius: 5px;
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
 .edit {
     background-color: rgb(255, 255, 255);

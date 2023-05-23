@@ -152,7 +152,7 @@ import axios from "axios";
 import { message } from "antd";
 import { UserAddOutlined } from "@ant-design/icons";
 import logo from "./assets/viettel.png";
-import "./App.css";
+import "./main.css";
 import StudentModal from "./components/modal/StudentModal";
 
 const App = () => {
@@ -190,16 +190,14 @@ const App = () => {
   };
 
   return (
-    <div className={`App ${isOpen ? "mask" : ""}`} style={{ backgroundColor: "bisque"}}>
-      <header className="header" style={{ position: "", color:'black',backgroundColor: "bisque"}}>
+    <div className={`App ${isOpen ? "mask" : ""}`} style={{ }}>
+      <header className="header" style={{ position: "", color:'black',}}>
         <h1>VDT 2023</h1>
-        {/* <div className="logo">
-          <img src={logo} alt="Logo" />
-        </div> */}
       </header>
-      <div className="text-list" style={{ backgroundColor: "bisque"}}>Apprentices in Cloud Computing</div>
+      <div className="text-list" style={{ }}>Apprentices in Cloud Computing</div>
       <td className="button-row" style={{ fontSize: "2rem", position: "absolute", transform:"translate(300%, -50%)"}} >
-                <button className="add"
+                
+                <button
                 onClick={() => {
                     setCurrentId("");
                     setIsEdit(true);
@@ -221,33 +219,14 @@ const App = () => {
               display: "flex",
             }}
           >
-            {/* <UserAddOutlined
-              style={{ fontSize: "2rem"}}
-              onClick={() => {
-                setCurrentId("");
-                setIsEdit(true);
-                setIsOpen(true);
-              }}
-            /> */}
-            {/* <td className="button-row" style={{ fontSize: "1rem" }} >
-                <button className="add"
-                onClick={() => {
-                    setCurrentId("");
-                    setIsEdit(true);
-                    setIsOpen(true);
-                }}
-                >
-                Add
-                </button>
-            </td> */}
 
           </div>
           <thead className='thead-table'>
             <tr className='head-table'>
-              <th style={{ backgroundColor: "bisque"}}>STT</th>
-              <th className="name" style={{ backgroundColor: "bisque"}}>Name</th>
-              <th style={{ backgroundColor: "bisque"}}>Username</th>
-              <th style={{ backgroundColor: "bisque"}}>Delete information/Delete</th>
+              <th style={{}}>STT</th>
+              <th className="name" style={{}}>Name</th>
+              <th style={{}}>Username</th>
+              <th style={{}}>Edit information/Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -260,10 +239,10 @@ const App = () => {
                   setCurrentId(student.id);
                 }}
               >
-                <td style={{ backgroundColor: "bisque"}}>{student.stt}</td>
-                <td style={{ backgroundColor: "bisque"}}>{student.name}</td>
-                <td style={{ backgroundColor: "bisque"}}>{student.username}</td>
-                <td className="button-row" style={{ backgroundColor: "bisque"}}>
+                <td style={{}}>{student.stt}</td>
+                <td style={{}}>{student.name}</td>
+                <td style={{}}>{student.username}</td>
+                <td className="button-row" style={{}}>
                   <button
                     className="edit"
                     onClick={(e) => {

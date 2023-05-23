@@ -1,0 +1,45 @@
+---
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Install td-agent.
+  package:
+    name: td-agent
+    state: "{{ fluentd_package_state }}"
+
+- name: Configure Fluentd.
+  template:
+    src: td-agent.conf.j2
+    dest: /etc/td-agent/td-agent.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart fluentd
+
+- name: Determine fluent-gem executable location for td-agent < v4
+  set_fact:
+    fluent_gem_executable: /opt/td-agent/embedded/bin/fluent-gem
+  when: fluentd_version < 4
+
+- name: Determine fluent-gem executable location for td-agent v4
+  set_fact:
+    fluent_gem_executable: /opt/td-agent/bin/fluent-gem
+  when: fluentd_version >= 4
+
+- name: Ensure Fluentd plugins are installed.
+  gem:
+    name: "{{ item.name | default(item) }}"
+    executable: "{{ fluent_gem_executable }}"
+    state: "{{ item.state | default('present') }}"
+    version: "{{ item.version | default(omit) }}"
+    user_install: false
+  with_items: "{{ fluentd_plugins }}"
+
+- name: Start Fluentd.
+  service:
+    name: "{{ fluentd_service_name }}"
+    state: "{{ fluentd_service_state }}"
+    enabled: "{{ fluentd_service_enabled }}"
