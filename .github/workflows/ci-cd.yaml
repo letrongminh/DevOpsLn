@@ -21,24 +21,24 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: cd 10.\ GK/Le-Trong-Minh/ && docker-compose build
+      run: cd 10.\ GK/Le-Trong-Minh/webapp && docker-compose build
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Test the Docker image
-        run: cd 10.\ GK/Le-Trong-Minh/ && docker-compose up -d
+        run: cd 10.\ GK/Le-Trong-Minh/webapp && docker-compose up -d
       
       ## Unitest
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          cd 10.\ GK/Le-Trong-Minh/backend/ && pip install -r requirements.txt
+          cd 10.\ GK/Le-Trong-Minh/webapp/backend/ && pip install -r requirements.txt
           pip install pytest pytest-cov
         
       - name: Test api
         run: |
-          cd 10.\ GK/Le-Trong-Minh/backend/api/
+          cd 10.\ GK/Le-Trong-Minh/webapp/backend/api/
           pwd
           pytest test_main.py
 
@@ -75,7 +75,7 @@ jobs:
       - name: Build and push api image to Docker hub
         uses: docker/build-push-action@v4
         with:
-          context: "{{defaultContext}}:10. GK/Le-Trong-Minh/backend"
+          context: "{{defaultContext}}:10.\ GK/Le-Trong-Minh/webapp/backend"
           platforms: linux/arm64
           push: true
           tags: "trongminhjr/api:v3"
@@ -84,7 +84,7 @@ jobs:
       - name: Build and push webserver image to Docker hub
         uses: docker/build-push-action@v4
         with:
-          context: "{{defaultContext}}:10. GK/Le-Trong-Minh/frontend"
+          context: "{{defaultContext}}:10.\ GK/Le-Trong-Minh/webapp/frontend"
           platforms: linux/arm64
           push: true
           tags: "trongminhjr/webserver:v3"
