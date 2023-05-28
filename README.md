@@ -1,7 +1,26 @@
-# frontend-coursera
-This project is my learning journey. 
-Some resourses:
-- [HTML, CSS, and Javascript for Web Developers Johns Hopkins University](https://www.coursera.org/learn/html-css-javascript-for-web-developers/home/welcome)
-- [Tự Học Lập Trình Web Một Cách Thật Tự Nhiên](https://viblo.asia/s/huong-dan-co-ban-tu-hoc-lap-trinh-web-mot-cach-that-tu-nhien-Wj53OQQP56m)
+# Prerequisites
 
-[Page](https://letrongminh.github.io/frontend-coursera/)
+- JDK 1.8 or later
+- Maven 3 or later
+- MySQL 5.6 or later
+
+# Technologies 
+- Spring MVC
+- Spring Security
+- Spring Data JPA
+- Maven
+- JSP
+- MySQL
+
+# Database
+Here,we used Mysql DB 
+MSQL DB Installation Steps for Linux ubuntu 14.04:
+- $ sudo apt-get update
+- $ sudo apt-get install mysql-server
+
+Then look for the file :
+- /src/main/resources/accountsdb
+- accountsdb.sql file is a mysql dump file.we have to import this dump to mysql db server
+- > mysql -u <user_name> -p accounts < accountsdb.sql
+
+
