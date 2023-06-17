@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: api-gateway
-        image: trongminhjr/tracking-api-gateway:v1
+        image: trongminhjr/tracking-api-gateway:v2
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice

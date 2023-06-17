@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: queue
-        image: trongminhjr/tracking-queue:v1
+        image: trongminhjr/tracking-queue:v2
