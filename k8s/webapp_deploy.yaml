@@ -15,6 +15,7 @@ spec:
       containers:
       - name: webapp
         image: trongminhjr/tracking-webapp:v2
+        # image: test-webapp-tracking
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
