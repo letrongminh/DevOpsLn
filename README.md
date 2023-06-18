@@ -1,7 +1,7 @@
 System architecture:
 
 <div align="center">
-  <img width="500" src="images/system_archi.png" alt="webapp">
+  <img width="1500" src="images/system_archi.png" alt="webapp">
 </div>
 
 <div align="center">
@@ -17,7 +17,7 @@ Deploy on AWS
 
 
 <div align="center">
-  <img width="500" src="images/deploy_on_AWS.png" alt="webapp">
+  <img width="1500" src="images/deploy_on_AWS.png" alt="webapp">
 </div>
 
 <div align="center">
