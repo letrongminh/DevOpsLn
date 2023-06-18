@@ -1,7 +1,5 @@
 FROM arm64v8/amazoncorretto:20-alpine-full
 
-# MAINTAINER Richard Chesterwood "richard@inceptiontraining.co.uk"
-
 RUN yum install -y which wget gzip tar && wget -O activemq.tar.gz http://archive.apache.org/dist/activemq/5.18.1/apache-activemq-5.18.1-bin.tar.gz
 
 RUN tar -xzf activemq.tar.gz
